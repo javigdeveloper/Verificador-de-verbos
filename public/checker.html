@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/checker-styles.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <title>Juego de Vocabulario</title>
+  </head>
+  <body id="body" class="body-class">
+    <h3 class="status"></h3>
+    <a href="#" class="arrow">
+      <i class="ri-arrow-drop-down-fill"></i>
+    </a>
+    <div class="menu">
+      <a href="./verbs.html">Temp List</a>
+      <a class="logout" href="#">Logout</a>
+    </div>
+    <p class="instructionOne">
+      Escribe las terminaciones para los tres diferentes grupos de verbos
+      regulares:
+    </p>
+    <button id="modalOneBtn">Practicar</button>
+    <div class="modalOne">
+      <div class="container">
+        <div class="colOne">
+          <p>amar</p>
+          <div>
+            <label>Yo am</label>
+            <input type="text" id="firstSingAr" />
+          </div>
+          <div>
+            <label>Tu am</label>
+            <input type="text" id="secondSingAr" />
+          </div>
+          <div>
+            <label>El am</label>
+            <input type="text" id="thirdSingAr" />
+          </div>
+          <div>
+            <label>Nosotros am</label>
+            <input type="text" id="firstPlurAr" />
+          </div>
+          <div>
+            <label>Ustedes am</label>
+            <input type="text" id="secondPlurAr" />
+          </div>
+          <div>
+            <label>Ellos am</label>
+            <input type="text" id="thirdPlurAr" />
+          </div>
+        </div>
+        <div class="colTwo">
+          <p>correr</p>
+          <div>
+            <label>Yo corr</label>
+            <input type="text" id="firstSingEr" />
+          </div>
+          <div>
+            <label>Tu corr</label>
+            <input type="text" id="secondSingEr" />
+          </div>
+          <div>
+            <label>El corr</label>
+            <input type="text" id="thirdSingEr" />
+          </div>
+          <div>
+            <label>Nosotros corr</label>
+            <input type="text" id="firstPlurEr" />
+          </div>
+          <div>
+            <label>Ustedes corr</label>
+            <input type="text" id="secondPlurEr" />
+          </div>
+          <div>
+            <label>Ellos corr</label>
+            <input type="text" id="thirdPlurEr" />
+          </div>
+        </div>
+        <div class="colThree">
+          <p>subir</p>
+          <div>
+            <label>Yo sub</label>
+            <input type="text" id="firstSingIr" />
+          </div>
+          <div>
+            <label>Tu sub</label>
+            <input type="text" id="secondSingIr" />
+          </div>
+          <div>
+            <label>El sub</label>
+            <input type="text" id="thirdSingIr" />
+          </div>
+          <div>
+            <label>Nosotros sub</label>
+            <input type="text" id="firstPlurIr" />
+          </div>
+          <div>
+            <label>Ustedes sub</label>
+            <input type="text" id="secondPlurIr" />
+          </div>
+          <div>
+            <label>Ellos sub</label>
+            <input type="text" id="thirdPlurIr" />
+          </div>
+        </div>
+      </div>
+      <button id="ans-btn">Submit answers</button>
+    </div>
+    <div class="modalTwo">
+      <div class="container-two">
+        <input type="text" id="sentence-input" />
+        <p>
+          this next button should check automatically for ending ar er ir and
+          then display all possible conjugations.
+        </p>
+        <p>
+          then it asks the user: does these conjugations look ok? if so you can
+          add this to your list of regular verbs (database)
+        </p>
+        <button id="build-btn">Check Verb</button>
+
+        <form id="add-verb-form">
+          <input type="text" name="ending" placeholder="Verb" />
+          <button>Add Verb</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- update the version number as needed -->
+    <script src="/__/firebase/7.15.5/firebase-app.js"></script>
+    <!-- include only the Firebase features as you need -->
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+          https://firebase.google.com/docs/web/setup#available-libraries -->
+    <script src="/__/firebase/7.15.5/firebase-auth.js"></script>
+    <script src="/__/firebase/7.15.5/firebase-firestore.js"></script>
+    <script src="/__/firebase/7.15.5/firebase-analytics.js"></script>
+    <!-- initialize the SDK after all desired features are loaded -->
+
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
+    <script src="./scripts/app.js"></script>
+  </body>
+</html>

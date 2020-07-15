@@ -1,0 +1,142 @@
+* {
+  margin: 0em;
+  padding: 0em;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url(../images/tierra.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 80vh;
+}
+
+/* Hamburger menu */
+.menu-btn {
+  left: 1250px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+
+.closed {
+  display: none;
+}
+
+.center-line {
+  width: 50px;
+  height: 6px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  transition: all 0.3s ease-in-out;
+}
+
+.line-up,
+.line-down {
+  position: absolute;
+  width: 50px;
+  height: 6px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 5px;
+  transition: all 0.4s ease-in-out;
+}
+
+.line-up {
+  transform: translateY(-16px);
+}
+
+.line-down {
+  transform: translateY(16px);
+}
+
+/* Animation for hamburger menu*/
+.menu-btn.open .center-line {
+  transform: scaleX(0);
+  background-color: transparent;
+}
+
+.menu-btn.open .line-up {
+  transform: rotate(45deg);
+}
+
+.menu-btn.open .line-down {
+  transform: rotate(-45deg);
+}
+
+/* drop down */
+.pop {
+  display: none;
+  height: 29em;
+  width: 25em;
+  background-color: rgb(255, 255, 255);
+}
+
+.pop-open {
+  display: block;
+  margin: auto;
+}
+
+img {
+  height: 24em;
+  width: 25em;
+}
+
+ul {
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
+}
+
+li {
+  font-size: 1.8em;
+  margin: 0.6em;
+}
+
+.modal {
+  width: 20em;
+  padding: 30px;
+  margin: 100px auto;
+  border-radius: 10px;
+  background: white;
+  text-align: center;
+  font-size: 1.4em;
+}
+
+.modal input {
+  height: 2em;
+  margin: 1em;
+  width: 80%;
+  display: block;
+}
+
+.modal button {
+  width: 40%;
+  height: 1.5em;
+  font-size: 1em;
+  margin: 0.5em;
+}
+
+.veil {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+  display: none;
+}
+.veil.open {
+  display: block;
+}
+
+.veil .modal {
+  display: none;
+}
+
+.modal.active {
+  display: block;
+}

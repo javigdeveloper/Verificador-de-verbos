@@ -1,0 +1,17 @@
+ul {
+  display: flex;
+  justify-content: space-evenly;
+  list-style: none;
+  font-size: 2em;
+}
+
+#verb-list {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  font-size: 2em;
+}
+
+li button {
+  margin-left: 1em;
+}
