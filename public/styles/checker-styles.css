@@ -8,7 +8,6 @@ body {
   padding: 1em;
   background-image: url(../images/universo.jpg);
   background-size: cover;
-  height: 100vh;
 }
 
 /* dropdown arrow and menu */
@@ -40,6 +39,7 @@ i {
   top: 6%;
   background-color: rgb(240, 240, 240);
   visibility: hidden;
+  border-radius: 0.8em;
 }
 
 .menu a {
@@ -54,7 +54,7 @@ i {
 
 .instructionOne {
   text-align: center;
-  margin-top: 50vh;
+  margin-top: 40vh;
   transform: translateY(-50%);
   font-weight: 100;
   font-size: 0.1em;
@@ -70,7 +70,7 @@ i {
 }
 
 #modalOneBtn {
-  margin: 1em 50vw;
+  margin: 2.7em 50vw 0;
   transform: translateX(-50%);
   font-size: 1.6em;
   border-radius: 10px;
@@ -85,14 +85,23 @@ i {
 }
 
 .modalOne {
-  background-color: white;
-  visibility: hidden;
   position: absolute;
-  top: 0;
+  top: 8em;
+  left: 24em;
+  width: 40em;
+  padding: 1.5em;
+  border-radius: 2em;
+  background-color: rgb(140, 195, 255);
+  display: none;
 }
 
 .modalOne.open {
-  visibility: visible;
+  display: block;
+}
+
+.modalInstruction {
+  padding: 1em 1em 0;
+  font-size: 0.8em;
 }
 
 .container {
@@ -100,7 +109,36 @@ i {
   justify-content: space-around;
 }
 
-form {
+.container p {
+  font-size: 1.5em;
+  font-weight: 600;
+  text-align: center;
+}
+
+.colOne div,
+.colTwo div,
+.colThree div {
+  display: flex;
+  justify-content: flex-end;
+  margin: 0.3em;
+}
+
+.container label {
+  font-size: 1.2em;
+}
+
+.ans-btn-class {
+  margin-top: 0.5em;
+  font-size: 1.1em;
+  padding: 0.2em;
+  font-weight: 600;
+  width: 100%;
+  cursor: pointer;
+  border-radius: 0.5em;
+  box-shadow: 3px 4px 5px rgba(66, 104, 144, 1);
+}
+
+#add-verb-form {
   display: flex;
   flex-direction: column;
 }
@@ -112,17 +150,22 @@ form button {
 input {
   width: 3em;
   font-size: 1em;
+  font-weight: 600;
 }
 
 .modalTwo {
-  background-color: white;
-  visibility: hidden;
   position: absolute;
-  top: 0em;
+  top: 7em;
+  left: 27em;
+  width: 34em;
+  padding: 1.5em;
+  border-radius: 2em;
+  background-color: rgb(140, 195, 255);
+  display: none;
 }
 
 .modalTwo.open {
-  visibility: visible;
+  display: block;
 }
 
 .container-two input {

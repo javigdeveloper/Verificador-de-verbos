@@ -1,8 +1,6 @@
 const fbDb = firebase.firestore();
 const fbAuth = firebase.auth();
-let paragraphOne = document.getElementById("par-pres");
-let button = document.getElementById("ans-btn");
-let buildButton = document.getElementById("build-btn");
+const button = document.getElementById("ans-btn");
 const form = document.querySelector("#add-verb-form");
 const signOut = document.querySelector(".logout");
 const body = document.getElementById("body");
@@ -11,15 +9,25 @@ const menu = document.querySelector(".menu");
 const modalOneBtn = document.querySelector("#modalOneBtn");
 const modalOne = document.querySelector(".modalOne");
 const instructionOne = document.querySelector(".instructionOne");
+const modalOneLink = document.querySelector(".modalOneLink");
+const modalTwoLink = document.querySelector(".modalTwoLink");
+const modalTwo = document.querySelector(".modalTwo");
 
+// adding classes to display elements:
 dropdown.addEventListener("click", () => {
   menu.classList.toggle("open");
 });
 
 modalOneBtn.addEventListener("click", () => {
   modalOne.classList.toggle("open");
-  // instructionOne.classList.remove("grow");
-  // modalOneBtn.classList.remove("open");
+  instructionOne.classList.remove("grow");
+  modalOneBtn.classList.remove("open");
+});
+
+modalOneLink.addEventListener("click", () => {
+  modalOne.classList.toggle("open");
+  modalTwo.classList.remove("open");
+  instructionOne.classList.remove("grow");
 });
 
 growMessage = () => {
@@ -37,14 +45,18 @@ addButton = () => {
 body.addEventListener("load", growMessage());
 body.addEventListener("load", addButton());
 
+modalTwoLink.addEventListener("click", () => {
+  modalOne.classList.remove("open");
+  modalTwo.classList.toggle("open");
+  modalOneBtn.classList.remove("open");
+});
+
 // remove menu or modals if click on body:
 body.addEventListener("click", (e) => {
   if (e.target.classList.contains("body-class")) {
     modalOne.classList.remove("open");
     menu.classList.remove("open");
-    // space for modal two
-    // space for modal two
-    // space for modal two
+    modalTwo.classList.remove("open");
   }
 });
 
@@ -72,12 +84,7 @@ signOut.addEventListener("click", () => {
   });
 });
 
-// saving data
-
-// *************************
-// the uid shouldn't be inside the document, but instead the collection id which
-// is automatic for now
-// *************************
+// saving data:
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
@@ -89,12 +96,6 @@ form.addEventListener("submit", (e) => {
   savingWithUser.add({
     ending: form.ending.value,
   });
-  // savingWithUser.set(
-  //   {
-  //     ending: form.ending.value,
-  //   },
-  //   { merge: true }
-  // );
   form.ending.value = "";
 });
 
@@ -102,17 +103,21 @@ form.addEventListener("submit", (e) => {
 // App:
 // ------------------------------
 
+// inside modal one:
 button.addEventListener("click", function () {
   fillParagraph();
 });
 
-// buildButton.addEventListener("click", function (e) {
-//   loopOverParContainer();
-// });
+// inside modal two:
+const buildButton = document.getElementById("build-btn");
+buildButton.addEventListener("click", function (e) {
+  let sentenceContent = document.getElementById("sentence-input").value;
+  console.log(sentenceContent);
+  // loopOverParContainer();
+});
 
 // function loopOverParContainer() {
 // let sentenceContent = document.getElementById("sentence-input").value;
-// let ending = document.getElementById("infinitive-input").value;
 // paragraphOne.innerHTML = sentenceContent + ending;
 // }
 
@@ -191,6 +196,68 @@ function fillParagraph() {
     thirdPlurAr.setAttribute("class", "correct");
   } else {
     thirdPlurAr.setAttribute("class", "incorrect");
+  }
+
+  if (firstSingEr.value == "o") {
+    firstSingEr.setAttribute("class", "correct");
+  } else {
+    firstSingEr.setAttribute("class", "incorrect");
+  }
+  if (secondSingEr.value == "es") {
+    secondSingEr.setAttribute("class", "correct");
+  } else {
+    secondSingEr.setAttribute("class", "incorrect");
+  }
+  if (thirdSingEr.value == "e") {
+    thirdSingEr.setAttribute("class", "correct");
+  } else {
+    thirdSingEr.setAttribute("class", "incorrect");
+  }
+  if (firstPlurEr.value == "emos") {
+    firstPlurEr.setAttribute("class", "correct");
+  } else {
+    firstPlurEr.setAttribute("class", "incorrect");
+  }
+  if (secondPlurEr.value == "en") {
+    secondPlurEr.setAttribute("class", "correct");
+  } else {
+    secondPlurEr.setAttribute("class", "incorrect");
+  }
+  if (thirdPlurEr.value == "en") {
+    thirdPlurEr.setAttribute("class", "correct");
+  } else {
+    thirdPlurEr.setAttribute("class", "incorrect");
+  }
+
+  if (firstSingIr.value == "o") {
+    firstSingIr.setAttribute("class", "correct");
+  } else {
+    firstSingIr.setAttribute("class", "incorrect");
+  }
+  if (secondSingIr.value == "es") {
+    secondSingIr.setAttribute("class", "correct");
+  } else {
+    secondSingIr.setAttribute("class", "incorrect");
+  }
+  if (thirdSingIr.value == "e") {
+    thirdSingIr.setAttribute("class", "correct");
+  } else {
+    thirdSingIr.setAttribute("class", "incorrect");
+  }
+  if (firstPlurIr.value == "imos") {
+    firstPlurIr.setAttribute("class", "correct");
+  } else {
+    firstPlurIr.setAttribute("class", "incorrect");
+  }
+  if (secondPlurIr.value == "en") {
+    secondPlurIr.setAttribute("class", "correct");
+  } else {
+    secondPlurIr.setAttribute("class", "incorrect");
+  }
+  if (thirdPlurIr.value == "en") {
+    thirdPlurIr.setAttribute("class", "correct");
+  } else {
+    thirdPlurIr.setAttribute("class", "incorrect");
   }
 
   // from this point I think I need to convert the variables to objects so I can

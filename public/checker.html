@@ -16,8 +16,10 @@
       <i class="ri-arrow-drop-down-fill"></i>
     </a>
     <div class="menu">
-      <a href="./verbs.html">Temp List</a>
-      <a class="logout" href="#">Logout</a>
+      <a class="modalOneLink" href="#">Practicar</a>
+      <a class="modalTwoLink" href="#">Agregar verbo</a>
+      <a href="./verbs.html">Mis verbos</a>
+      <a class="logout" href="#">Salir</a>
     </div>
     <p class="instructionOne">
       Escribe las terminaciones para los tres diferentes grupos de verbos
@@ -108,15 +110,22 @@
           </div>
         </div>
       </div>
-      <button id="ans-btn">Submit answers</button>
+      <button id="ans-btn" class="ans-btn-class">Chequear Respuestas</button>
+      <p class="modalInstruction">
+        Puedes oprimir el boton Chequear Respuestas cuantas veces quieras. Si
+        tus respuestas se vuelven verdes están correctas. No dejes espacios
+        despues de tus respuestas.
+      </p>
     </div>
+
     <div class="modalTwo">
       <div class="container-two">
-        <input type="text" id="sentence-input" />
         <p>
-          this next button should check automatically for ending ar er ir and
-          then display all possible conjugations.
+          Escribe el verbo que deseas agregar para verlo de manera conjugada de
+          acuerdo a los patrones de un verbo regular. Si tu profesor te dice que
+          sí es un verbo regular, puedes agregarlo a tu lista.
         </p>
+        <input type="text" id="sentence-input" />
         <p>
           then it asks the user: does these conjugations look ok? if so you can
           add this to your list of regular verbs (database)
