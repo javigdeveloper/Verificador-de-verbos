@@ -12,6 +12,7 @@ const instructionOne = document.querySelector(".instructionOne");
 const modalOneLink = document.querySelector(".modalOneLink");
 const modalTwoLink = document.querySelector(".modalTwoLink");
 const modalTwo = document.querySelector(".modalTwo");
+const buildButton = document.getElementById("build-btn");
 
 // adding classes to display elements:
 dropdown.addEventListener("click", () => {
@@ -49,6 +50,7 @@ modalTwoLink.addEventListener("click", () => {
   modalOne.classList.remove("open");
   modalTwo.classList.toggle("open");
   modalOneBtn.classList.remove("open");
+  instructionOne.classList.remove("grow");
 });
 
 // remove menu or modals if click on body:
@@ -57,6 +59,8 @@ body.addEventListener("click", (e) => {
     modalOne.classList.remove("open");
     menu.classList.remove("open");
     modalTwo.classList.remove("open");
+    modalThree.classList.remove("open");
+    modalTwo.classList.remove("extra");
   }
 });
 
@@ -65,10 +69,10 @@ let message = document.getElementsByClassName("status")[0];
 fbAuth.onAuthStateChanged((user) => {
   if (user) {
     body.style.display = "block";
-    message.innerHTML = `You are logged in as ${user.email}`;
+    message.innerHTML = `Has iniciado sesión como ${user.email}`;
   } else {
     body.style.display = "none";
-    message.innerHTML = "You are logged out";
+    message.innerHTML = "Has salido";
   }
 });
 
@@ -105,23 +109,83 @@ form.addEventListener("submit", (e) => {
 
 // inside modal one:
 button.addEventListener("click", function () {
-  fillParagraph();
+  checkEndings();
 });
 
 // inside modal two:
-const buildButton = document.getElementById("build-btn");
+const errorParagraph = document.querySelector(".not-infinitive");
+
+// inside modal three:
+const modalThree = document.querySelector(".modalThree");
+const yo = document.querySelector(".yo");
+const tu = document.querySelector(".tu");
+const el = document.querySelector(".el");
+const nosotros = document.querySelector(".nosotros");
+const ustedes = document.querySelector(".ustedes");
+const ellos = document.querySelector(".ellos");
+
 buildButton.addEventListener("click", function (e) {
   let sentenceContent = document.getElementById("sentence-input").value;
-  console.log(sentenceContent);
-  // loopOverParContainer();
+  modalThree.classList.add("open");
+  modalTwo.classList.add("extra");
+  // identifying the ending..
+  let patt1 = /.*ar$/i;
+  let patt2 = /.*er$/i;
+  let patt3 = /.*ir$/i;
+  if (sentenceContent.match(patt1)) {
+    conjugateAr(sentenceContent);
+  } else if (sentenceContent.match(patt2)) {
+    conjugateEr(sentenceContent);
+  } else if (sentenceContent.match(patt3)) {
+    conjugateIr(sentenceContent);
+  } else {
+    modalThree.classList.remove("open");
+    modalTwo.classList.remove("extra");
+    errorParagraph.innerHTML =
+      "Escribe un verbo en infinitivo terminado en ar, er, ir";
+    setTimeout(() => {
+      errorParagraph.innerHTML = "";
+    }, 3000);
+  }
+  console.log("sentenceContent variable ", sentenceContent);
 });
 
-// function loopOverParContainer() {
-// let sentenceContent = document.getElementById("sentence-input").value;
-// paragraphOne.innerHTML = sentenceContent + ending;
-// }
+// let patt1 = /(.*)(?=ar)/i;
+let result = "";
+function conjugateAr(verb) {
+  let end1 = /.*(?=ar)/i;
+  result = verb.match(end1);
+  yo.innerHTML = result[0] + "o";
+  tu.innerHTML = result[0] + "as";
+  el.innerHTML = result[0] + "a";
+  nosotros.innerHTML = result[0] + "amos";
+  ustedes.innerHTML = result[0] + "an";
+  ellos.innerHTML = result[0] + "an";
+}
 
-function fillParagraph() {
+function conjugateEr(verb) {
+  let end2 = /.*(?=er)/i;
+  result = verb.match(end2);
+  yo.innerHTML = result[0] + "o";
+  tu.innerHTML = result[0] + "es";
+  el.innerHTML = result[0] + "e";
+  nosotros.innerHTML = result[0] + "emos";
+  ustedes.innerHTML = result[0] + "en";
+  ellos.innerHTML = result[0] + "en";
+}
+
+function conjugateIr(verb) {
+  let end3 = /.*(?=ir)/i;
+  result = verb.match(end3);
+  yo.innerHTML = result[0] + "o";
+  tu.innerHTML = result[0] + "es";
+  el.innerHTML = result[0] + "e";
+  nosotros.innerHTML = result[0] + "imos";
+  ustedes.innerHTML = result[0] + "en";
+  ellos.innerHTML = result[0] + "en";
+}
+
+function checkEndings() {
   let firstSingAr = document.getElementById("firstSingAr");
   let secondSingAr = document.getElementById("secondSingAr");
   let thirdSingAr = document.getElementById("thirdSingAr");
@@ -260,6 +324,6 @@ function fillParagraph() {
     thirdPlurIr.setAttribute("class", "incorrect");
   }
 
-  // from this point I think I need to convert the variables to objects so I can
+  // I think I need to convert the variables to objects so I can
   // iterate and shorten the code.
 }
