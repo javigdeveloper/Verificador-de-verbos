@@ -68,7 +68,7 @@ i {
 
 #verb-list {
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
   flex-wrap: wrap;
   font-size: 2em;
 }
@@ -80,4 +80,8 @@ li {
 
 li button {
   margin-left: 1em;
+  padding: 0.2em;
+  border-radius: 0.4em;
+  font-weight: 600;
+  cursor: pointer;
 }

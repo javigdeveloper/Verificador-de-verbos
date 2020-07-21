@@ -102,6 +102,11 @@ i {
   display: block;
 }
 
+.modalOneParagraph {
+  margin: 0.5em;
+  font-weight: 600;
+}
+
 .modalInstruction {
   padding: 1em 1em 0;
   font-size: 0.8em;
@@ -145,6 +150,10 @@ input {
   width: 3em;
   font-size: 1em;
   font-weight: 600;
+}
+
+button {
+  cursor: pointer;
 }
 
 .modalTwo {
@@ -227,8 +236,28 @@ input {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-bottom: 0.5em;
 }
 
 .modalThree li {
   list-style: none;
+}
+
+.modalThree form {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.modalThree input {
+  border-radius: 0.3em;
+  width: 9em;
+  font-size: 0.7em;
+  padding: 0.1em 0.5em;
+}
+
+.modalThree button {
+  font-size: 0.6em;
+  border-radius: 0.3em;
+  padding: 0.3em;
+  width: 9em;
 }

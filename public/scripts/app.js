@@ -1,6 +1,7 @@
 const fbDb = firebase.firestore();
 const fbAuth = firebase.auth();
-const button = document.getElementById("ans-btn");
+// const button = document.getElementById("ans-btn");
+const checkEndingsForm = document.querySelector("#check-endings-form");
 const form = document.querySelector("#add-verb-form");
 const signOut = document.querySelector(".logout");
 const body = document.getElementById("body");
@@ -78,8 +79,6 @@ fbAuth.onAuthStateChanged((user) => {
 
 // sign out
 signOut.addEventListener("click", () => {
-  console.log("listening for signout on app.js");
-
   fbAuth.signOut().then(() => {
     console.log("signed out");
     // this link is most probably going to change on deploy!!!
@@ -92,13 +91,16 @@ signOut.addEventListener("click", () => {
 
 form.addEventListener("submit", (e) => {
   e.preventDefault();
+  let inputVerb = form.ending.value.toLowerCase();
+  inputVerb = inputVerb.charAt(0).toUpperCase() + inputVerb.slice(1);
+  console.log(inputVerb);
   const usuario = fbAuth.currentUser.uid;
   const savingWithUser = fbDb
     .collection("users")
     .doc(usuario)
     .collection("regular-verbs");
   savingWithUser.add({
-    ending: form.ending.value,
+    ending: inputVerb,
   });
   form.ending.value = "";
 });
@@ -108,7 +110,8 @@ form.addEventListener("submit", (e) => {
 // ------------------------------
 
 // inside modal one:
-button.addEventListener("click", function () {
+checkEndingsForm.addEventListener("submit", (event) => {
+  event.preventDefault();
   checkEndings();
 });
 
@@ -125,6 +128,7 @@ const ustedes = document.querySelector(".ustedes");
 const ellos = document.querySelector(".ellos");
 
 buildButton.addEventListener("click", function (e) {
+  e.preventDefault();
   let sentenceContent = document.getElementById("sentence-input").value;
   modalThree.classList.add("open");
   modalTwo.classList.add("extra");
@@ -132,6 +136,7 @@ buildButton.addEventListener("click", function (e) {
   let patt1 = /.*ar$/i;
   let patt2 = /.*er$/i;
   let patt3 = /.*ir$/i;
+  form.ending.value = sentenceContent;
   if (sentenceContent.match(patt1)) {
     conjugateAr(sentenceContent);
   } else if (sentenceContent.match(patt2)) {
@@ -139,6 +144,7 @@ buildButton.addEventListener("click", function (e) {
   } else if (sentenceContent.match(patt3)) {
     conjugateIr(sentenceContent);
   } else {
+    form.ending.value = "";
     modalThree.classList.remove("open");
     modalTwo.classList.remove("extra");
     errorParagraph.innerHTML =
@@ -147,7 +153,6 @@ buildButton.addEventListener("click", function (e) {
       errorParagraph.innerHTML = "";
     }, 3000);
   }
-  console.log("sentenceContent variable ", sentenceContent);
 });
 
 // let patt1 = /(.*)(?=ar)/i;

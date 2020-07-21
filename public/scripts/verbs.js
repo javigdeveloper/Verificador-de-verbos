@@ -76,11 +76,11 @@ function renderVerb(doc, usuario) {
   let checkBtn = document.createElement("button");
   li.setAttribute("data-id", doc.id);
   li.textContent = doc.data().ending;
-  removeBtn.textContent = "Remover de la lista";
-  checkBtn.textContent = "Confirmar con lista oficial";
+  removeBtn.textContent = "Remover";
+  checkBtn.textContent = "Confirmar";
   verbList.appendChild(li);
-  li.appendChild(removeBtn);
   li.appendChild(checkBtn);
+  li.appendChild(removeBtn);
   console.log(usuario);
 
   // deleting data
@@ -96,19 +96,7 @@ function renderVerb(doc, usuario) {
     console.log("deleted");
   });
 
-  // let officialList = [
-  //   "amar",
-  //   "avivar",
-  //   "ayudar",
-  //   "castigar",
-  //   "caminar",
-  //   "donar",
-  //   "felicitar",
-  //   "financiar",
-  //   "ganar",
-  //   "pagar",
-  // ];
-
+  // checking if a verb is regular agains the official verbList:
   checkBtn.addEventListener("click", () => {
     let uniqueVerb = doc.data().ending;
     console.log(list[0]);

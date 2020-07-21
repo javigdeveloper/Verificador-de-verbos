@@ -27,95 +27,101 @@
     </p>
     <button id="modalOneBtn">Practicar</button>
     <div class="modalOne">
-      <div class="container">
-        <div class="colOne">
-          <p>amar</p>
-          <div>
-            <label>Yo am</label>
-            <input type="text" id="firstSingAr" />
+      <form id="check-endings-form">
+        <p class="modalOneParagraph">
+          Practica las terminaciones para los tres grupos de verbos regulares en
+          español:
+        </p>
+        <div class="container">
+          <div class="colOne">
+            <p>amar</p>
+            <div>
+              <label>Yo am</label>
+              <input type="text" id="firstSingAr" />
+            </div>
+            <div>
+              <label>Tu am</label>
+              <input type="text" id="secondSingAr" />
+            </div>
+            <div>
+              <label>El am</label>
+              <input type="text" id="thirdSingAr" />
+            </div>
+            <div>
+              <label>Nosotros am</label>
+              <input type="text" id="firstPlurAr" />
+            </div>
+            <div>
+              <label>Ustedes am</label>
+              <input type="text" id="secondPlurAr" />
+            </div>
+            <div>
+              <label>Ellos am</label>
+              <input type="text" id="thirdPlurAr" />
+            </div>
           </div>
-          <div>
-            <label>Tu am</label>
-            <input type="text" id="secondSingAr" />
+          <div class="colTwo">
+            <p>correr</p>
+            <div>
+              <label>Yo corr</label>
+              <input type="text" id="firstSingEr" />
+            </div>
+            <div>
+              <label>Tu corr</label>
+              <input type="text" id="secondSingEr" />
+            </div>
+            <div>
+              <label>El corr</label>
+              <input type="text" id="thirdSingEr" />
+            </div>
+            <div>
+              <label>Nosotros corr</label>
+              <input type="text" id="firstPlurEr" />
+            </div>
+            <div>
+              <label>Ustedes corr</label>
+              <input type="text" id="secondPlurEr" />
+            </div>
+            <div>
+              <label>Ellos corr</label>
+              <input type="text" id="thirdPlurEr" />
+            </div>
           </div>
-          <div>
-            <label>El am</label>
-            <input type="text" id="thirdSingAr" />
-          </div>
-          <div>
-            <label>Nosotros am</label>
-            <input type="text" id="firstPlurAr" />
-          </div>
-          <div>
-            <label>Ustedes am</label>
-            <input type="text" id="secondPlurAr" />
-          </div>
-          <div>
-            <label>Ellos am</label>
-            <input type="text" id="thirdPlurAr" />
+          <div class="colThree">
+            <p>subir</p>
+            <div>
+              <label>Yo sub</label>
+              <input type="text" id="firstSingIr" />
+            </div>
+            <div>
+              <label>Tu sub</label>
+              <input type="text" id="secondSingIr" />
+            </div>
+            <div>
+              <label>El sub</label>
+              <input type="text" id="thirdSingIr" />
+            </div>
+            <div>
+              <label>Nosotros sub</label>
+              <input type="text" id="firstPlurIr" />
+            </div>
+            <div>
+              <label>Ustedes sub</label>
+              <input type="text" id="secondPlurIr" />
+            </div>
+            <div>
+              <label>Ellos sub</label>
+              <input type="text" id="thirdPlurIr" />
+            </div>
           </div>
         </div>
-        <div class="colTwo">
-          <p>correr</p>
-          <div>
-            <label>Yo corr</label>
-            <input type="text" id="firstSingEr" />
-          </div>
-          <div>
-            <label>Tu corr</label>
-            <input type="text" id="secondSingEr" />
-          </div>
-          <div>
-            <label>El corr</label>
-            <input type="text" id="thirdSingEr" />
-          </div>
-          <div>
-            <label>Nosotros corr</label>
-            <input type="text" id="firstPlurEr" />
-          </div>
-          <div>
-            <label>Ustedes corr</label>
-            <input type="text" id="secondPlurEr" />
-          </div>
-          <div>
-            <label>Ellos corr</label>
-            <input type="text" id="thirdPlurEr" />
-          </div>
-        </div>
-        <div class="colThree">
-          <p>subir</p>
-          <div>
-            <label>Yo sub</label>
-            <input type="text" id="firstSingIr" />
-          </div>
-          <div>
-            <label>Tu sub</label>
-            <input type="text" id="secondSingIr" />
-          </div>
-          <div>
-            <label>El sub</label>
-            <input type="text" id="thirdSingIr" />
-          </div>
-          <div>
-            <label>Nosotros sub</label>
-            <input type="text" id="firstPlurIr" />
-          </div>
-          <div>
-            <label>Ustedes sub</label>
-            <input type="text" id="secondPlurIr" />
-          </div>
-          <div>
-            <label>Ellos sub</label>
-            <input type="text" id="thirdPlurIr" />
-          </div>
-        </div>
-      </div>
-      <button id="ans-btn" class="ans-btn-class">Chequear Respuestas</button>
-      <p class="modalInstruction">
-        Puedes oprimir el boton Chequear Respuestas cuantas veces quieras. Si
-        tus respuestas se vuelven verdes al oprimir el botón, están correctas.
-        No dejes espacios despues de tus respuestas.
-      </p>
+        <button id="ans-btn" class="ans-btn-class">Chequear Respuestas</button>
+        <p class="modalInstruction">
+          Puedes oprimir el boton Chequear Respuestas cuantas veces quieras. Si
+          tus respuestas se vuelven verdes al oprimir el botón, están correctas.
+          <strong>No dejes espacios en tus respuestas.</strong>
+        </p>
+      </form>
     </div>
 
     <div class="modalTwo">
@@ -126,22 +132,18 @@
         </p>
         <form class="check-conjugation">
           <input type="text" id="sentence-input" />
-          <button id="build-btn">Verificar Verbo</button>
+          <button id="build-btn">Verificar</button>
         </form>
         <p class="not-infinitive"></p>
-
-        <form id="add-verb-form">
-          <input type="text" name="ending" placeholder="Verb" />
-          <button>Agregar Verbo</button>
-        </form>
       </div>
     </div>
 
     <div class="modalThree">
       <p>
         Si tu profesor te dice que estas conjugaciones están bien, puedes
-        agregar este verbo a tu lista de verbos regulares. Más adelante podras
-        verificar también con la lista oficial de verbos regulares.
+        agregar este verbo a tu lista de verbos regulares. Una vez hayas
+        agregado el verbo, podras verificarlo haciendo click en
+        <a href="./verbs.html">Mis verbos</a>.
       </p>
       <ul class="modalThreeList">
         <li>Yo <span class="yo"></span></li>
@@ -151,6 +153,10 @@
         <li>Ustedes <span class="ustedes"></span></li>
         <li>Ellos <span class="ellos"></span></li>
       </ul>
+      <form id="add-verb-form">
+        <input type="text" name="ending" placeholder="Verb" />
+        <button>Agregar</button>
+      </form>
     </div>
 
     <!-- update the version number as needed -->
