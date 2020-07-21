@@ -4,27 +4,32 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./styles/verbs.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@2.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
     <title>Juego de Vocabulario</title>
   </head>
-  <body id="body">
-    <nav>
-      <div>
-        <ul>
-          <li>
-            <a href="./checker.html">Temp Checker</a>
-          </li>
-          <li>
-            <a class="logout" href="#">Logout</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
-    <p>
+  <body id="body" class="body-class">
+    <h3 class="status"></h3>
+    <a href="#" class="arrow">
+      <i class="ri-arrow-drop-down-fill"></i>
+    </a>
+    <div class="menu">
+      <a href="./checker.html">Verificador de verbos</a>
+      <a class="logout" href="#">Salir</a>
+    </div>
+
+    <!-- <p>
       cada que completes 10 verbos podrás chequear si son realmente verbos
       regulares
-    </p>
-    <ul id="verb-list"></ul>
+    </p> -->
 
+    <div class="modalOne">
+      <ul id="verb-list"></ul>
+    </div>
+
+    <!-- script tags: -->
     <!-- update the version number as needed -->
     <script src="/__/firebase/7.15.5/firebase-app.js"></script>
     <!-- include only the Firebase features as you need -->
@@ -37,6 +42,7 @@
 
     <!-- Initialize Firebase -->
     <script src="/__/firebase/init.js"></script>
+    <script src="/./scripts/verbList.js"></script>
     <script src="./scripts/verbs.js"></script>
   </body>
 </html>

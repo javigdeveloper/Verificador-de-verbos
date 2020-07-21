@@ -2,7 +2,25 @@ const fbDb = firebase.firestore();
 const fbAuth = firebase.auth();
 const signOut = document.querySelector(".logout");
 const body = document.getElementById("body");
+const dropdown = document.querySelector(".arrow");
+const menu = document.querySelector(".menu");
 
+// adding classes to display elements:
+dropdown.addEventListener("click", () => {
+  menu.classList.toggle("open");
+});
+
+// remove menu or modals if click on body:
+body.addEventListener("click", (e) => {
+  if (e.target.classList.contains("body-class")) {
+    menu.classList.remove("open");
+    // modalOne.classList.remove("open");
+    // modalTwo.classList.remove("open");
+    // modalThree.classList.remove("open");
+  }
+});
+
+let message = document.getElementsByClassName("status")[0];
 fbAuth.onAuthStateChanged((user) => {
   usuario = user.uid;
 
@@ -26,10 +44,13 @@ fbAuth.onAuthStateChanged((user) => {
       });
     });
 
+  // auth listener
   if (user) {
     body.style.display = "block";
+    message.innerHTML = `Has iniciado sesión como ${user.email}`;
   } else {
     body.style.display = "none";
+    message.innerHTML = "Has salido";
   }
 });
 
@@ -52,17 +73,20 @@ const verbList = document.querySelector("#verb-list");
 function renderVerb(doc, usuario) {
   let li = document.createElement("li");
   let removeBtn = document.createElement("button");
+  let checkBtn = document.createElement("button");
   li.setAttribute("data-id", doc.id);
   li.textContent = doc.data().ending;
-  removeBtn.textContent = "Remove";
+  removeBtn.textContent = "Remover de la lista";
+  checkBtn.textContent = "Confirmar con lista oficial";
   verbList.appendChild(li);
   li.appendChild(removeBtn);
+  li.appendChild(checkBtn);
   console.log(usuario);
 
   // deleting data
   removeBtn.addEventListener("click", (e) => {
-    // e.stopPropagation();
-    let id = e.target.parentElement.getAttribute("data-id");
+    // Testing if I need the next line...
+    // let id = e.target.parentElement.getAttribute("data-id");
     fbDb
       .collection("users")
       .doc(usuario)
@@ -70,6 +94,31 @@ function renderVerb(doc, usuario) {
       .doc(doc.id)
       .delete();
     console.log("deleted");
+  });
+
+  // let officialList = [
+  //   "amar",
+  //   "avivar",
+  //   "ayudar",
+  //   "castigar",
+  //   "caminar",
+  //   "donar",
+  //   "felicitar",
+  //   "financiar",
+  //   "ganar",
+  //   "pagar",
+  // ];
+
+  checkBtn.addEventListener("click", () => {
+    let uniqueVerb = doc.data().ending;
+    console.log(list[0]);
+    console.log("this is unique " + uniqueVerb);
+    if (list.includes(uniqueVerb)) {
+      li.style.color = "green";
+      console.log(uniqueVerb);
+    } else {
+      li.style.color = "red";
+    }
   });
 }
 
@@ -87,3 +136,8 @@ function renderVerb(doc, usuario) {
 // another way for getting the uid:
 // const usuario = firebase.auth().currentUser;
 // console.log(usuario);
+
+// testing using node to access verbList File...
+// const listOfVerbs = require("./verbList");
+
+console.log(list[0]);

@@ -8,6 +8,7 @@ body {
   padding: 1em;
   background-image: url(../images/universo.jpg);
   background-size: cover;
+  min-height: 100vh;
 }
 
 /* dropdown arrow and menu */
@@ -38,7 +39,7 @@ i {
   align-items: center;
   position: absolute;
   right: 2.1%;
-  top: 9%;
+  top: 10%;
   background-color: rgb(240, 240, 240);
   visibility: hidden;
   border-radius: 0.8em;
