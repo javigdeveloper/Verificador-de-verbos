@@ -58,6 +58,7 @@ registerForm.addEventListener("submit", (e) => {
     .createUserWithEmailAndPassword(email, password)
     .then((user) => {
       registerForm.reset();
+      location.replace("checker.html");
     })
     .catch((error) => {
       registerForm.querySelector(".error").textContent =
