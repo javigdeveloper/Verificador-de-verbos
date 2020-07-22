@@ -57,11 +57,12 @@ registerForm.addEventListener("submit", (e) => {
   fbAuth
     .createUserWithEmailAndPassword(email, password)
     .then((user) => {
-      console.log("registered", user);
       registerForm.reset();
     })
     .catch((error) => {
-      registerForm.querySelector(".error").textContent = error.message;
+      registerForm.querySelector(".error").textContent =
+        "Debes ingresar una cuenta válida de correo.";
+      // registerForm.querySelector(".error").textContent = error.message;
     });
 });
 
@@ -73,13 +74,13 @@ loginForm.addEventListener("submit", (e) => {
   fbAuth
     .signInWithEmailAndPassword(email, password)
     .then((user) => {
-      console.log("logged in", user);
       loginForm.reset();
-      // this link is most probably going to change on deploy!!!
       location.replace("checker.html");
       // this link is most probably going to change on deploy!!!
     })
     .catch((error) => {
-      loginForm.querySelector(".error").textContent = error.message;
+      loginForm.querySelector(".error").textContent =
+        "Debes ingresar una cuenta válida de correo.";
+      // loginForm.querySelector(".error").textContent = error.message;
     });
 });

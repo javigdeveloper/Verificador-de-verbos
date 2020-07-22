@@ -14,9 +14,6 @@ dropdown.addEventListener("click", () => {
 body.addEventListener("click", (e) => {
   if (e.target.classList.contains("body-class")) {
     menu.classList.remove("open");
-    // modalOne.classList.remove("open");
-    // modalTwo.classList.remove("open");
-    // modalThree.classList.remove("open");
   }
 });
 
@@ -33,8 +30,6 @@ fbAuth.onAuthStateChanged((user) => {
     .onSnapshot((snapshot) => {
       let changes = snapshot.docChanges();
       changes.forEach((change) => {
-        console.log(usuario);
-        console.log(change.doc.data());
         if (change.type == "added") {
           renderVerb(change.doc, usuario);
         } else if (change.type == "removed") {
@@ -56,13 +51,9 @@ fbAuth.onAuthStateChanged((user) => {
 
 // sign out
 signOut.addEventListener("click", () => {
-  console.log("listening for signout on app.js");
-
   fbAuth.signOut().then(() => {
-    console.log("signed out");
-    // this link is most probably going to change on deploy!!!
     location.replace("index.html");
-    // this link is most probably going to change on deploy!!!
+    // this link is probably going to change on deploy!!!
   });
 });
 
@@ -81,7 +72,6 @@ function renderVerb(doc, usuario) {
   verbList.appendChild(li);
   li.appendChild(checkBtn);
   li.appendChild(removeBtn);
-  console.log(usuario);
 
   // deleting data
   removeBtn.addEventListener("click", (e) => {
@@ -93,39 +83,15 @@ function renderVerb(doc, usuario) {
       .collection("regular-verbs")
       .doc(doc.id)
       .delete();
-    console.log("deleted");
   });
 
   // checking if a verb is regular agains the official verbList:
   checkBtn.addEventListener("click", () => {
     let uniqueVerb = doc.data().ending;
-    console.log(list[0]);
-    console.log("this is unique " + uniqueVerb);
     if (list.includes(uniqueVerb)) {
       li.style.color = "green";
-      console.log(uniqueVerb);
     } else {
       li.style.color = "red";
     }
   });
 }
-
-// getting data
-// firebase
-//   .firestore()
-//   .collection("users")
-//   .get()
-//   .then((snapshot) => {
-//     snapshot.docs.forEach((doc) => {
-//       renderVerb(doc);
-//     });
-//   });
-
-// another way for getting the uid:
-// const usuario = firebase.auth().currentUser;
-// console.log(usuario);
-
-// testing using node to access verbList File...
-// const listOfVerbs = require("./verbList");
-
-console.log(list[0]);

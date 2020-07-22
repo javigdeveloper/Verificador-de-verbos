@@ -1,21 +1,21 @@
 const fbDb = firebase.firestore();
 const fbAuth = firebase.auth();
-// const button = document.getElementById("ans-btn");
 const checkEndingsForm = document.querySelector("#check-endings-form");
 const form = document.querySelector("#add-verb-form");
 const signOut = document.querySelector(".logout");
 const body = document.getElementById("body");
 const dropdown = document.querySelector(".arrow");
 const menu = document.querySelector(".menu");
-const modalOneBtn = document.querySelector("#modalOneBtn");
 const modalOne = document.querySelector(".modalOne");
+const modalOneBtn = document.querySelector("#modalOneBtn");
 const instructionOne = document.querySelector(".instructionOne");
 const modalOneLink = document.querySelector(".modalOneLink");
 const modalTwoLink = document.querySelector(".modalTwoLink");
 const modalTwo = document.querySelector(".modalTwo");
 const buildButton = document.getElementById("build-btn");
+const modalThree = document.querySelector(".modalThree");
 
-// adding classes to display elements:
+// adding and removing classes to display elements or not:
 dropdown.addEventListener("click", () => {
   menu.classList.toggle("open");
 });
@@ -29,9 +29,18 @@ modalOneBtn.addEventListener("click", () => {
 modalOneLink.addEventListener("click", () => {
   modalOne.classList.toggle("open");
   modalTwo.classList.remove("open");
+  modalThree.classList.remove("open");
   instructionOne.classList.remove("grow");
 });
 
+modalTwoLink.addEventListener("click", () => {
+  modalOne.classList.remove("open");
+  modalTwo.classList.toggle("open");
+  modalOneBtn.classList.remove("open");
+  instructionOne.classList.remove("grow");
+});
+
+// functions for displaying elements on load after timeout:
 growMessage = () => {
   setTimeout(() => {
     instructionOne.classList.add("grow");
@@ -46,13 +55,6 @@ addButton = () => {
 
 body.addEventListener("load", growMessage());
 body.addEventListener("load", addButton());
-
-modalTwoLink.addEventListener("click", () => {
-  modalOne.classList.remove("open");
-  modalTwo.classList.toggle("open");
-  modalOneBtn.classList.remove("open");
-  instructionOne.classList.remove("grow");
-});
 
 // remove menu or modals if click on body:
 body.addEventListener("click", (e) => {
@@ -80,20 +82,16 @@ fbAuth.onAuthStateChanged((user) => {
 // sign out
 signOut.addEventListener("click", () => {
   fbAuth.signOut().then(() => {
-    console.log("signed out");
-    // this link is most probably going to change on deploy!!!
     location.replace("index.html");
     // this link is most probably going to change on deploy!!!
   });
 });
 
 // saving data:
-
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   let inputVerb = form.ending.value.toLowerCase();
   inputVerb = inputVerb.charAt(0).toUpperCase() + inputVerb.slice(1);
-  console.log(inputVerb);
   const usuario = fbAuth.currentUser.uid;
   const savingWithUser = fbDb
     .collection("users")
@@ -105,90 +103,14 @@ form.addEventListener("submit", (e) => {
   form.ending.value = "";
 });
 
-// ------------------------------
+// --------------------------------------------------------
 // App:
-// ------------------------------
 
 // inside modal one:
 checkEndingsForm.addEventListener("submit", (event) => {
   event.preventDefault();
   checkEndings();
 });
-
-// inside modal two:
-const errorParagraph = document.querySelector(".not-infinitive");
-
-// inside modal three:
-const modalThree = document.querySelector(".modalThree");
-const yo = document.querySelector(".yo");
-const tu = document.querySelector(".tu");
-const el = document.querySelector(".el");
-const nosotros = document.querySelector(".nosotros");
-const ustedes = document.querySelector(".ustedes");
-const ellos = document.querySelector(".ellos");
-
-buildButton.addEventListener("click", function (e) {
-  e.preventDefault();
-  let sentenceContent = document.getElementById("sentence-input").value;
-  modalThree.classList.add("open");
-  modalTwo.classList.add("extra");
-  // identifying the ending..
-  let patt1 = /.*ar$/i;
-  let patt2 = /.*er$/i;
-  let patt3 = /.*ir$/i;
-  form.ending.value = sentenceContent;
-  if (sentenceContent.match(patt1)) {
-    conjugateAr(sentenceContent);
-  } else if (sentenceContent.match(patt2)) {
-    conjugateEr(sentenceContent);
-  } else if (sentenceContent.match(patt3)) {
-    conjugateIr(sentenceContent);
-  } else {
-    form.ending.value = "";
-    modalThree.classList.remove("open");
-    modalTwo.classList.remove("extra");
-    errorParagraph.innerHTML =
-      "Escribe un verbo en infinitivo terminado en ar, er, ir";
-    setTimeout(() => {
-      errorParagraph.innerHTML = "";
-    }, 3000);
-  }
-});
-
-// let patt1 = /(.*)(?=ar)/i;
-let result = "";
-function conjugateAr(verb) {
-  let end1 = /.*(?=ar)/i;
-  result = verb.match(end1);
-  yo.innerHTML = result[0] + "o";
-  tu.innerHTML = result[0] + "as";
-  el.innerHTML = result[0] + "a";
-  nosotros.innerHTML = result[0] + "amos";
-  ustedes.innerHTML = result[0] + "an";
-  ellos.innerHTML = result[0] + "an";
-}
-
-function conjugateEr(verb) {
-  let end2 = /.*(?=er)/i;
-  result = verb.match(end2);
-  yo.innerHTML = result[0] + "o";
-  tu.innerHTML = result[0] + "es";
-  el.innerHTML = result[0] + "e";
-  nosotros.innerHTML = result[0] + "emos";
-  ustedes.innerHTML = result[0] + "en";
-  ellos.innerHTML = result[0] + "en";
-}
-
-function conjugateIr(verb) {
-  let end3 = /.*(?=ir)/i;
-  result = verb.match(end3);
-  yo.innerHTML = result[0] + "o";
-  tu.innerHTML = result[0] + "es";
-  el.innerHTML = result[0] + "e";
-  nosotros.innerHTML = result[0] + "imos";
-  ustedes.innerHTML = result[0] + "en";
-  ellos.innerHTML = result[0] + "en";
-}
 
 function checkEndings() {
   let firstSingAr = document.getElementById("firstSingAr");
@@ -328,7 +250,78 @@ function checkEndings() {
   } else {
     thirdPlurIr.setAttribute("class", "incorrect");
   }
+}
 
-  // I think I need to convert the variables to objects so I can
-  // iterate and shorten the code.
+// inside modal two:
+const errorParagraph = document.querySelector(".not-infinitive");
+
+buildButton.addEventListener("click", function (e) {
+  e.preventDefault();
+  let sentenceContent = document.getElementById("sentence-input").value;
+  modalThree.classList.add("open");
+  modalTwo.classList.add("extra");
+  // identifying the ending..
+  let patt1 = /.*ar$/i;
+  let patt2 = /.*er$/i;
+  let patt3 = /.*ir$/i;
+  form.ending.value = sentenceContent;
+  if (sentenceContent.match(patt1)) {
+    conjugateAr(sentenceContent);
+  } else if (sentenceContent.match(patt2)) {
+    conjugateEr(sentenceContent);
+  } else if (sentenceContent.match(patt3)) {
+    conjugateIr(sentenceContent);
+  } else {
+    form.ending.value = "";
+    modalThree.classList.remove("open");
+    modalTwo.classList.remove("extra");
+    errorParagraph.innerHTML =
+      "Escribe un verbo en infinitivo terminado en ar, er, ir";
+    setTimeout(() => {
+      errorParagraph.innerHTML = "";
+    }, 3000);
+  }
+});
+
+// inside modal three:
+const yo = document.querySelector(".yo");
+const tu = document.querySelector(".tu");
+const el = document.querySelector(".el");
+const nosotros = document.querySelector(".nosotros");
+const ustedes = document.querySelector(".ustedes");
+const ellos = document.querySelector(".ellos");
+
+// let patt1 = /(.*)(?=ar)/i;
+let result = "";
+function conjugateAr(verb) {
+  let end1 = /.*(?=ar)/i;
+  result = verb.match(end1);
+  yo.innerHTML = result[0] + "o";
+  tu.innerHTML = result[0] + "as";
+  el.innerHTML = result[0] + "a";
+  nosotros.innerHTML = result[0] + "amos";
+  ustedes.innerHTML = result[0] + "an";
+  ellos.innerHTML = result[0] + "an";
+}
+
+function conjugateEr(verb) {
+  let end2 = /.*(?=er)/i;
+  result = verb.match(end2);
+  yo.innerHTML = result[0] + "o";
+  tu.innerHTML = result[0] + "es";
+  el.innerHTML = result[0] + "e";
+  nosotros.innerHTML = result[0] + "emos";
+  ustedes.innerHTML = result[0] + "en";
+  ellos.innerHTML = result[0] + "en";
+}
+
+function conjugateIr(verb) {
+  let end3 = /.*(?=ir)/i;
+  result = verb.match(end3);
+  yo.innerHTML = result[0] + "o";
+  tu.innerHTML = result[0] + "es";
+  el.innerHTML = result[0] + "e";
+  nosotros.innerHTML = result[0] + "imos";
+  ustedes.innerHTML = result[0] + "en";
+  ellos.innerHTML = result[0] + "en";
 }
