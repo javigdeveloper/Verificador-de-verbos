@@ -1,6 +1,7 @@
 let list = [
   "Abandonar",
   "Avivar",
+  "Complementar",
   "Depender",
   "Maquillar",
   "Abarcar",

@@ -142,3 +142,43 @@ li {
 .modal.active {
   display: block;
 }
+
+@media (max-width: 425px) {
+  body {
+    height: 100vh;
+  }
+  .menu-btn {
+    left: 85vw;
+    width: 45px;
+    height: 60px;
+  }
+  .center-line,
+  .line-up,
+  .line-down {
+    width: 40px;
+  }
+  .line-up {
+    transform: translateY(-12px);
+  }
+  .line-down {
+    transform: translateY(12px);
+  }
+  img {
+    width: inherit;
+    height: auto;
+  }
+  .pop {
+    height: 20em;
+    width: 16em;
+  }
+  ul {
+    font-size: 0.8em;
+  }
+  .modal {
+    width: 13em;
+    padding: 16px;
+  }
+  .modal button {
+    font-size: 0.8em;
+  }
+}

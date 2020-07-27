@@ -56,10 +56,6 @@ i {
 }
 
 .modalOne {
-  /* position: absolute;
-  top: 8em;
-  left: 24em; */
-  /* width: 40em; */
   margin: 10vw;
   padding: 1.5em;
   border-radius: 2em;
@@ -84,4 +80,19 @@ li button {
   border-radius: 0.4em;
   font-weight: 600;
   cursor: pointer;
+}
+
+@media (max-width: 425px) {
+  .status {
+    margin: 0em;
+  }
+  .modalOne {
+    margin: 30vw 0vw 3vh;
+  }
+  li button {
+    display: block;
+  }
+  .menu {
+    top: 11%;
+  }
 }

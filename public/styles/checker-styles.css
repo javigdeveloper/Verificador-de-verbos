@@ -261,3 +261,67 @@ button {
   padding: 0.3em;
   width: 9em;
 }
+
+@media (max-width: 425px) {
+  .menu {
+    padding: 0.5em;
+  }
+  .status {
+    margin: 0em;
+  }
+  .instructionOne {
+    margin-top: 45vh;
+  }
+  #modalOneBtn {
+    margin-top: -10vh;
+  }
+  .modalOne {
+    width: 90vw;
+    left: 5vw;
+    top: 12.7em;
+  }
+  .container {
+    flex-direction: column;
+  }
+  .modalOneParagraph {
+    margin: 0em;
+    font-weight: 100;
+  }
+  .colOne div,
+  .colTwo div,
+  .colThree div {
+    margin: 2vw 20vw 2vw 0vw;
+  }
+  .modalInstruction {
+    padding: 1em 0em 0;
+    font-size: 0.7em;
+  }
+  .ans-btn-class {
+    font-size: 1em;
+  }
+  .modalTwo {
+    top: 14em;
+    left: 1em;
+    width: 90vw;
+  }
+  .container-two button {
+    margin-left: 2em;
+  }
+  .modalThree {
+    top: 7em;
+    left: 0.6em;
+    width: 90vw;
+    padding: 0.5em;
+  }
+  .modalThree input {
+    margin-bottom: 1em;
+    width: 8em;
+  }
+  .modalThree button {
+    margin-bottom: 1.1em;
+  }
+  .modalTwo.extra {
+    left: 1em;
+    top: 39em;
+  }
+}
