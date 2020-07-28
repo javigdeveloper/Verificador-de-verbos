@@ -158,94 +158,94 @@ function checkEndings() {
     element.removeAttribute("class");
   }
 
-  if (firstSingAr.value == "o") {
+  if (firstSingAr.value.match(/^o\s*$/i)) {
     firstSingAr.setAttribute("class", "correct");
   } else {
     firstSingAr.setAttribute("class", "incorrect");
   }
-  if (secondSingAr.value == "as") {
+  if (secondSingAr.value.match(/^as\s*$/i)) {
     secondSingAr.setAttribute("class", "correct");
   } else {
     secondSingAr.setAttribute("class", "incorrect");
   }
-  if (thirdSingAr.value == "a") {
+  if (thirdSingAr.value.match(/^a\s*$/i)) {
     thirdSingAr.setAttribute("class", "correct");
   } else {
     thirdSingAr.setAttribute("class", "incorrect");
   }
-  if (firstPlurAr.value == "amos") {
+  if (firstPlurAr.value.match(/^amos\s*$/i)) {
     firstPlurAr.setAttribute("class", "correct");
   } else {
     firstPlurAr.setAttribute("class", "incorrect");
   }
-  if (secondPlurAr.value == "an") {
+  if (secondPlurAr.value.match(/^an\s*$/i)) {
     secondPlurAr.setAttribute("class", "correct");
   } else {
     secondPlurAr.setAttribute("class", "incorrect");
   }
-  if (thirdPlurAr.value == "an") {
+  if (thirdPlurAr.value.match(/^an\s*$/i)) {
     thirdPlurAr.setAttribute("class", "correct");
   } else {
     thirdPlurAr.setAttribute("class", "incorrect");
   }
 
-  if (firstSingEr.value == "o") {
+  if (firstSingEr.value.match(/^o\s*$/i)) {
     firstSingEr.setAttribute("class", "correct");
   } else {
     firstSingEr.setAttribute("class", "incorrect");
   }
-  if (secondSingEr.value == "es") {
+  if (secondSingEr.value.match(/^es\s*$/i)) {
     secondSingEr.setAttribute("class", "correct");
   } else {
     secondSingEr.setAttribute("class", "incorrect");
   }
-  if (thirdSingEr.value == "e") {
+  if (thirdSingEr.value.match(/^e\s*$/i)) {
     thirdSingEr.setAttribute("class", "correct");
   } else {
     thirdSingEr.setAttribute("class", "incorrect");
   }
-  if (firstPlurEr.value == "emos") {
+  if (firstPlurEr.value.match(/^emos\s*$/i)) {
     firstPlurEr.setAttribute("class", "correct");
   } else {
     firstPlurEr.setAttribute("class", "incorrect");
   }
-  if (secondPlurEr.value == "en") {
+  if (secondPlurEr.value.match(/^en\s*$/i)) {
     secondPlurEr.setAttribute("class", "correct");
   } else {
     secondPlurEr.setAttribute("class", "incorrect");
   }
-  if (thirdPlurEr.value == "en") {
+  if (thirdPlurEr.value.match(/^en\s*$/i)) {
     thirdPlurEr.setAttribute("class", "correct");
   } else {
     thirdPlurEr.setAttribute("class", "incorrect");
   }
 
-  if (firstSingIr.value == "o") {
+  if (firstSingIr.value.match(/^o\s*$/i)) {
     firstSingIr.setAttribute("class", "correct");
   } else {
     firstSingIr.setAttribute("class", "incorrect");
   }
-  if (secondSingIr.value == "es") {
+  if (secondSingIr.value.match(/^es\s*$/i)) {
     secondSingIr.setAttribute("class", "correct");
   } else {
     secondSingIr.setAttribute("class", "incorrect");
   }
-  if (thirdSingIr.value == "e") {
+  if (thirdSingIr.value.match(/^e\s*$/i)) {
     thirdSingIr.setAttribute("class", "correct");
   } else {
     thirdSingIr.setAttribute("class", "incorrect");
   }
-  if (firstPlurIr.value == "imos") {
+  if (firstPlurIr.value.match(/^imos\s*$/i)) {
     firstPlurIr.setAttribute("class", "correct");
   } else {
     firstPlurIr.setAttribute("class", "incorrect");
   }
-  if (secondPlurIr.value == "en") {
+  if (secondPlurIr.value.match(/^en\s*$/i)) {
     secondPlurIr.setAttribute("class", "correct");
   } else {
     secondPlurIr.setAttribute("class", "incorrect");
   }
-  if (thirdPlurIr.value == "en") {
+  if (thirdPlurIr.value.match(/^en\s*$/i)) {
     thirdPlurIr.setAttribute("class", "correct");
   } else {
     thirdPlurIr.setAttribute("class", "incorrect");
