@@ -265,14 +265,17 @@ button {
 @media (max-width: 768px) {
   .menu {
     padding: 0.5em;
-    right: 8vw;
+    right: 10vw;
     top: 1vw;
   }
   .status {
     margin: 0em;
   }
+  .instructionOne {
+    margin-top: 28vw;
+  }
   #modalOneBtn {
-    margin-top: 0vh;
+    margin-top: -2vw;
   }
   .modalOne {
     top: 24vw;
@@ -321,10 +324,10 @@ button {
     margin: 0em;
   }
   .instructionOne {
-    margin-top: 45vh;
+    margin-top: 82vw;
   }
   #modalOneBtn {
-    margin-top: -10vh;
+    margin-top: -22vw;
   }
   .modalOne {
     width: 90vw;
