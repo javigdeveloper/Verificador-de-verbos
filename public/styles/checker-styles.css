@@ -324,7 +324,7 @@ button {
     margin: 0em;
   }
   .instructionOne {
-    margin-top: 84vw;
+    margin-top: 82vw;
   }
   #modalOneBtn {
     margin-top: -22vw;
@@ -332,7 +332,7 @@ button {
   .modalOne {
     width: 90vw;
     left: 5vw;
-    top: 13.2em;
+    top: 70vw;
   }
   .container {
     flex-direction: column;
