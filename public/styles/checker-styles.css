@@ -38,8 +38,8 @@ i {
   flex-direction: column;
   align-items: center;
   position: absolute;
-  right: 2.1%;
-  top: 10%;
+  right: 2vw;
+  top: 4.5vw;
   background-color: rgb(240, 240, 240);
   visibility: hidden;
   border-radius: 0.8em;
@@ -91,7 +91,7 @@ i {
   position: absolute;
   top: 8em;
   left: 24em;
-  width: 40em;
+  width: 44vw;
   padding: 1.5em;
   border-radius: 2em;
   background-color: rgb(140 207 255);
@@ -173,7 +173,7 @@ button {
 }
 
 .modalTwo.extra {
-  left: 39em;
+  left: 40em;
 }
 
 .modalTwoPar {
@@ -262,9 +262,59 @@ button {
   width: 9em;
 }
 
+@media (max-width: 768px) {
+  .menu {
+    padding: 0.5em;
+    right: 8vw;
+    top: 1vw;
+  }
+  .status {
+    margin: 0em;
+  }
+  #modalOneBtn {
+    margin-top: 0vh;
+  }
+  .modalOne {
+    top: 22vw;
+    left: 7vw;
+    width: 85vw;
+  }
+  .modalTwo {
+    top: 21vw;
+    left: 4vw;
+    width: 90vw;
+  }
+  .container-two input {
+    margin-left: 12vw;
+  }
+  .container-two button {
+    margin-left: 2em;
+  }
+  .modalThree {
+    top: 21vw;
+    left: 4vw;
+    width: 90vw;
+    padding: 0.5em;
+  }
+  .modalThree input {
+    margin-bottom: 1em;
+    width: 8em;
+  }
+  .modalThree button {
+    margin-bottom: 1.1em;
+  }
+  .modalTwo.extra {
+    left: 2em;
+    top: 67vw;
+    margin-bottom: 2vw;
+  }
+}
+
 @media (max-width: 425px) {
   .menu {
     padding: 0.5em;
+    right: 5vw;
+    top: 19vw;
   }
   .status {
     margin: 0em;
@@ -278,7 +328,7 @@ button {
   .modalOne {
     width: 90vw;
     left: 5vw;
-    top: 12.7em;
+    top: 13.2em;
   }
   .container {
     flex-direction: column;
@@ -307,8 +357,11 @@ button {
   .container-two button {
     margin-left: 2em;
   }
+  .container-two input {
+    margin-left: 0vw;
+  }
   .modalThree {
-    top: 7em;
+    top: 7.5em;
     left: 0.6em;
     width: 90vw;
     padding: 0.5em;
@@ -322,7 +375,7 @@ button {
   }
   .modalTwo.extra {
     left: 1em;
-    top: 42em;
-    margin-top: 1vw;
+    top: 43.2em;
+    margin-bottom: 5vw;
   }
 }

@@ -82,17 +82,36 @@ li button {
   cursor: pointer;
 }
 
-@media (max-width: 425px) {
+@media (max-width: 768px) {
   .status {
     margin: 0em;
   }
   .modalOne {
-    margin: 30vw 0vw 3vh;
+    margin: 16vw 17vw 1vw;
   }
   li button {
-    display: block;
+    padding: 0.4em;
+  }
+}
+@media (max-width: 425px) {
+  .status {
+    margin: 0em;
   }
   .menu {
     top: 11%;
+  }
+  .modalOne {
+    margin: 30vw 0vw 3vh;
+  }
+  .modalOne p {
+    font-size: 0.8em;
+  }
+  li {
+    width: 32vw;
+    margin-left: 3vw;
+    font-size: 0.6em;
+  }
+  li button {
+    display: block;
   }
 }
