@@ -275,12 +275,13 @@ button {
     margin-top: 0vh;
   }
   .modalOne {
-    top: 22vw;
+    top: 24vw;
     left: 7vw;
     width: 85vw;
+    margin-bottom: 5vw;
   }
   .modalTwo {
-    top: 21vw;
+    top: 25vw;
     left: 4vw;
     width: 90vw;
   }
@@ -291,7 +292,7 @@ button {
     margin-left: 2em;
   }
   .modalThree {
-    top: 21vw;
+    top: 28vw;
     left: 4vw;
     width: 90vw;
     padding: 0.5em;
@@ -304,8 +305,8 @@ button {
     margin-bottom: 1.1em;
   }
   .modalTwo.extra {
-    left: 2em;
-    top: 67vw;
+    left: 4vw;
+    top: 94vw;
     margin-bottom: 2vw;
   }
 }
@@ -350,8 +351,8 @@ button {
     font-size: 1em;
   }
   .modalTwo {
-    top: 14em;
-    left: 1em;
+    top: 68vw;
+    left: 4.8vw;
     width: 90vw;
   }
   .container-two button {
@@ -361,8 +362,8 @@ button {
     margin-left: 0vw;
   }
   .modalThree {
-    top: 7.5em;
-    left: 0.6em;
+    top: 68vw;
+    left: 4.8vw;
     width: 90vw;
     padding: 0.5em;
   }
@@ -374,8 +375,8 @@ button {
     margin-bottom: 1.1em;
   }
   .modalTwo.extra {
-    left: 1em;
-    top: 43.2em;
+    left: 4.8vw;
+    top: 200vw;
     margin-bottom: 5vw;
   }
 }

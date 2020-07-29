@@ -86,8 +86,11 @@ li button {
   .status {
     margin: 0em;
   }
+  .menu {
+    top: 10vw;
+  }
   .modalOne {
-    margin: 16vw 17vw 1vw;
+    margin: 22vw 17vw 1vw;
   }
   li button {
     padding: 0.4em;
@@ -98,10 +101,10 @@ li button {
     margin: 0em;
   }
   .menu {
-    top: 11%;
+    top: 20vw;
   }
   .modalOne {
-    margin: 30vw 0vw 3vh;
+    margin: 32vw 0vw 4vw;
   }
   .modalOne p {
     font-size: 0.8em;

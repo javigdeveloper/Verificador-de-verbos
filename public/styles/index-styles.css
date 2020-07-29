@@ -143,6 +143,48 @@ li {
   display: block;
 }
 
+@media (max-width: 768px) {
+  body {
+    height: 100vh;
+  }
+  .menu-btn {
+    left: 90vw;
+    width: 45px;
+    height: 60px;
+  }
+  .center-line,
+  .line-up,
+  .line-down {
+    width: 40px;
+  }
+  .line-up {
+    transform: translateY(-12px);
+  }
+  .line-down {
+    transform: translateY(12px);
+  }
+  .pop {
+    height: 42vw;
+    width: 35vw;
+  }
+  img {
+    width: inherit;
+    height: auto;
+  }
+  li {
+    font-size: 1.2em;
+    margin: 0.2em;
+  }
+  .modal {
+    width: 13em;
+    padding: 16px;
+    margin-top: 70px;
+  }
+  .modal button {
+    font-size: 0.8em;
+  }
+}
+
 @media (max-width: 425px) {
   body {
     height: 100vh;
@@ -171,8 +213,9 @@ li {
     height: 20em;
     width: 16em;
   }
-  ul {
-    font-size: 0.8em;
+  li {
+    font-size: 1.5em;
+    margin: 0.6em;
   }
   .modal {
     width: 13em;
