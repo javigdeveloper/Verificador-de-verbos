@@ -88,19 +88,33 @@ signOut.addEventListener("click", () => {
 });
 
 // saving data:
+const errorParagraphOne = document
+  .querySelector(".modalThree")
+  .querySelector(".not-infinitive");
+
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  let inputVerb = form.ending.value.toLowerCase();
-  inputVerb = inputVerb.charAt(0).toUpperCase() + inputVerb.slice(1);
-  const usuario = fbAuth.currentUser.uid;
-  const savingWithUser = fbDb
-    .collection("users")
-    .doc(usuario)
-    .collection("regular-verbs");
-  savingWithUser.add({
-    ending: inputVerb,
-  });
-  form.ending.value = "";
+
+  let spacePatt = /^\s*$/;
+  if (form.ending.value.match(spacePatt)) {
+    errorParagraphOne.innerHTML =
+      "Escribe un verbo en infinitivo terminado en ar, er, ir";
+    setTimeout(() => {
+      errorParagraphOne.innerHTML = "";
+    }, 2500);
+  } else {
+    let inputVerb = form.ending.value.toLowerCase();
+    inputVerb = inputVerb.charAt(0).toUpperCase() + inputVerb.slice(1);
+    const usuario = fbAuth.currentUser.uid;
+    const savingWithUser = fbDb
+      .collection("users")
+      .doc(usuario)
+      .collection("regular-verbs");
+    savingWithUser.add({
+      ending: inputVerb,
+    });
+    form.ending.value = "";
+  }
 });
 
 // --------------------------------------------------------
@@ -279,7 +293,7 @@ buildButton.addEventListener("click", function (e) {
       "Escribe un verbo en infinitivo terminado en ar, er, ir";
     setTimeout(() => {
       errorParagraph.innerHTML = "";
-    }, 3000);
+    }, 2500);
   }
 });
 

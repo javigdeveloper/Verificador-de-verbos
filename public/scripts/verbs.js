@@ -85,7 +85,7 @@ function renderVerb(doc, usuario) {
       .delete();
   });
 
-  // checking if a verb is regular agains the official verbList:
+  // checking if a verb is regular against the official verbList:
   checkBtn.addEventListener("click", () => {
     let uniqueVerb = doc.data().ending;
     if (list.includes(uniqueVerb)) {

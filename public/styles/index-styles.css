@@ -14,12 +14,12 @@ body {
 
 /* Hamburger menu */
 .menu-btn {
-  left: 1250px;
+  left: 90vw;
   position: relative;
   display: flex;
   align-items: center;
   width: 80px;
-  height: 80px;
+  height: 90px;
   cursor: pointer;
   transition: all 0.5s ease-in-out;
 }
